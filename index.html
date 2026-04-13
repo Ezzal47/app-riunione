@@ -10,41 +10,57 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;min-height:100vh}
 .login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
 .login-card{background:white;border-radius:12px;padding:40px;width:100%;max-width:380px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
-.login-card h1{font-size:18px;font-weight:600;margin-bottom:6px;color:#1a1a1a}
+.login-card h1{font-size:20px;font-weight:600;margin-bottom:6px;color:#1a1a1a}
 .login-card p{font-size:13px;color:#666;margin-bottom:24px}
 .app{display:none;grid-template-columns:300px 1fr;min-height:100vh}
-.side{background:white;border-right:1px solid #eee;display:flex;flex-direction:column;padding:16px;gap:12px;overflow-y:auto}
+.side{background:white;border-right:1px solid #eee;display:flex;flex-direction:column;padding:16px;gap:12px;overflow-y:auto;max-height:100vh}
 .side h2{font-size:13px;font-weight:600;color:#1a1a1a;padding-bottom:8px;border-bottom:1px solid #eee}
-.main{display:flex;flex-direction:column;padding:20px;gap:16px}
+.main{display:flex;flex-direction:column;padding:20px;gap:16px;overflow-y:auto}
 label{display:block;font-size:12px;font-weight:500;color:#555;margin-bottom:4px}
-input,textarea,select{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:13px;font-family:inherit;color:#1a1a1a}
+input[type=text],input[type=date],input[type=password],textarea,select{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:13px;font-family:inherit;color:#1a1a1a}
 textarea{resize:vertical;min-height:60px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sec-lbl{font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
 .upload-area{border:1px dashed #ccc;border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:12px;color:#888;transition:all .15s}
 .upload-area:hover{border-color:#4f46e5;color:#4f46e5;background:#f5f3ff}
 .pill{display:flex;align-items:center;gap:6px;padding:5px 8px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:11px;color:#166534;margin-top:4px}
 .pill span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pill-rm{cursor:pointer;opacity:.5;flex-shrink:0}.pill-rm:hover{opacity:1}
+.pill-rm{cursor:pointer;opacity:.5;flex-shrink:0;font-size:13px}.pill-rm:hover{opacity:1}
+.mtabs{display:flex;gap:4px;margin-bottom:8px}
+.mt{flex:1;padding:5px;font-size:11px;font-weight:500;background:white;border:1px solid #ddd;border-radius:8px;color:#666;cursor:pointer;text-align:center;transition:all .15s}
+.mt:hover{color:#1a1a1a}.mt.on{background:#4f46e5;border-color:#4f46e5;color:white}
+.rec-box{background:#f9f9f9;border:1px solid #eee;border-radius:8px;padding:10px;text-align:center}
+.rec-lbl{font-size:11px;color:#888;margin-bottom:2px}
+.rec-clk{font-family:monospace;font-size:20px;font-weight:500;margin:2px 0 6px;color:#1a1a1a}
+.rbars{display:flex;align-items:center;justify-content:center;gap:2px;height:16px;margin-bottom:8px}
+.rbar{width:3px;height:3px;background:#4f46e5;border-radius:2px}
+.rbars.on .rbar{animation:rb .65s ease-in-out infinite}
+.rbar:nth-child(2){animation-delay:.1s}.rbar:nth-child(3){animation-delay:.2s}.rbar:nth-child(4){animation-delay:.06s}.rbar:nth-child(5){animation-delay:.16s}
+@keyframes rb{0%,100%{height:3px}50%{height:14px}}
+.rbtns{display:flex;gap:4px;justify-content:center}
+.rb{padding:4px 10px;font-size:11px;border-radius:8px;border:1px solid;cursor:pointer;background:transparent;transition:all .15s}
+.rb:disabled{opacity:.3;cursor:not-allowed}
+.rb-s{color:#166534;border-color:#bbf7d0}.rb-s:hover:not(:disabled){background:#f0fdf4}
+.rb-p{color:#92400e;border-color:#fde68a}.rb-p:hover:not(:disabled){background:#fffbeb}
+.rb-x{color:#991b1b;border-color:#fecaca}.rb-x:hover:not(:disabled){background:#fef2f2}
 .btn-gen{width:100%;padding:11px;background:#4f46e5;border:none;border-radius:8px;color:white;font-size:14px;font-weight:500;cursor:pointer;transition:opacity .15s}
 .btn-gen:hover:not(:disabled){opacity:.85}.btn-gen:disabled{opacity:.4;cursor:not-allowed}
-.btn-sec{width:100%;padding:8px;background:transparent;border:1px solid #ddd;border-radius:8px;color:#555;font-size:12px;cursor:pointer;margin-top:6px}
+.btn-sec{width:100%;padding:8px;background:transparent;border:1px solid #ddd;border-radius:8px;color:#555;font-size:12px;cursor:pointer;margin-top:6px;transition:all .15s}
 .btn-sec:hover{background:#f5f5f5}
-.out-card{background:white;border-radius:12px;padding:20px;flex:1}
-.out-card h3{font-size:14px;font-weight:600;margin-bottom:12px;color:#1a1a1a}
-.log{font-family:monospace;font-size:11px;line-height:1.8;white-space:pre-wrap;background:#f9f9f9;border-radius:8px;padding:10px;min-height:120px;color:#555}
+.out-card{background:white;border-radius:12px;padding:20px;flex:1;min-height:400px}
+.log{font-family:monospace;font-size:11px;line-height:1.8;white-space:pre-wrap;background:#f9f9f9;border-radius:8px;padding:10px;min-height:200px;color:#555;max-height:500px;overflow-y:auto}
 .minuta{font-family:'Times New Roman',serif;font-size:12px;line-height:1.7;white-space:pre-wrap;color:#1a1a1a}
 .tabs{display:flex;gap:4px;margin-bottom:12px}
 .tab{padding:6px 14px;border-radius:8px;font-size:12px;cursor:pointer;color:#666;background:transparent;border:1px solid transparent}
-.tab.on{background:#4f46e5;color:white}
-.tab:not(.on):hover{background:#f5f5f5}
+.tab.on{background:#4f46e5;color:white}.tab:not(.on):hover{background:#f5f5f5}
 .pane{display:none}.pane.on{display:block}
 .status{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:12px;margin-bottom:12px}
 .status.ok{background:#f0fdf4;color:#166534}
 .status.err{background:#fef2f2;color:#991b1b}
-.status.wait{background:#fafaf0;color:#854d0e}
-.spin{display:inline-block;width:12px;height:12px;border:2px solid #ccc;border-top-color:#4f46e5;border-radius:50%;animation:sp .7s linear infinite}
+.status.wait{background:#fffbeb;color:#92400e}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid #ccc;border-top-color:#4f46e5;border-radius:50%;animation:sp .7s linear infinite;flex-shrink:0}
 @keyframes sp{to{transform:rotate(360deg)}}
-.warn{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:8px 10px;font-size:11px;color:#92400e;margin-top:6px;display:none}
+.divider{height:1px;background:#eee;margin:4px 0}
 </style>
 </head>
 <body>
@@ -52,10 +68,10 @@ textarea{resize:vertical;min-height:60px}
 <div class="login" id="login-screen">
   <div class="login-card">
     <h1>Agente Minuta</h1>
-    <p>F-35 JSF &middot; Eglin AFB &middot; Inserisci la tua chiave di accesso</p>
+    <p>Inserisci la tua chiave di accesso per continuare</p>
     <div style="margin-bottom:12px">
       <label>Chiave di accesso</label>
-      <input type="password" id="key-input" placeholder="RMI-EGLIN-..." onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="key-input" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
     <button class="btn-gen" onclick="doLogin()">Accedi</button>
     <div id="login-err" style="display:none;margin-top:10px;font-size:12px;color:#991b1b;text-align:center"></div>
@@ -66,37 +82,83 @@ textarea{resize:vertical;min-height:60px}
   <div class="side">
     <h2>Agente Minuta</h2>
 
+    <!-- 1. PDF -->
     <div>
-      <label>1 — Briefing PDF</label>
-      <div class="upload-area" onclick="document.getElementById('i-pdf').click()">+ Aggiungi PDF</div>
+      <div class="sec-lbl">1 — Briefing PDF</div>
+      <div class="upload-area" onclick="document.getElementById('i-pdf').click()">+ Aggiungi uno o più PDF</div>
       <input type="file" id="i-pdf" accept=".pdf" multiple style="display:none">
       <div id="pdf-list"></div>
-      <div class="warn" id="pdf-warn">PDF.js non disponibile — incolla il testo del briefing negli appunti</div>
+      <div id="pdf-words" style="font-size:11px;color:#888;margin-top:4px"></div>
     </div>
 
+    <div class="divider"></div>
+
+    <!-- 2. Orale -->
     <div>
-      <label>2 — Appunti / trascrizione <span style="font-weight:400;color:#aaa">(opz.)</span></label>
-      <textarea id="m-txt" rows="4" placeholder="Incolla trascrizione o appunti..."></textarea>
+      <div class="sec-lbl">2 — Contenuto orale <span style="font-weight:400;text-transform:none">(opz.)</span></div>
+      <div class="mtabs">
+        <button class="mt on" onclick="setMode('file',this)">File audio</button>
+        <button class="mt" onclick="setMode('text',this)">Testo</button>
+        <button class="mt" onclick="setMode('rec',this)">Registra</button>
+      </div>
+
+      <div id="md-file">
+        <div class="upload-area" onclick="document.getElementById('i-aud').click()">+ File audio (MP3/WAV/M4A)</div>
+        <input type="file" id="i-aud" accept="audio/*,.mp3,.wav,.m4a" style="display:none">
+        <div id="p-aud"></div>
+        <div style="margin-top:6px">
+          <div class="upload-area" onclick="document.getElementById('i-txt').click()">+ File testo (TXT/DOCX)</div>
+          <input type="file" id="i-txt" accept=".txt,.docx,.doc" style="display:none">
+          <div id="p-txt-file"></div>
+        </div>
+      </div>
+
+      <div id="md-text" style="display:none">
+        <label>Trascrizione o appunti</label>
+        <textarea id="m-txt" rows="6" placeholder="Incolla trascrizione o appunti..."></textarea>
+      </div>
+
+      <div id="md-rec" style="display:none">
+        <div class="rec-box">
+          <div class="rec-lbl" id="r-lbl">Pronto</div>
+          <div class="rec-clk" id="r-clk">00:00</div>
+          <div class="rbars" id="r-bars">
+            <div class="rbar"></div><div class="rbar"></div><div class="rbar"></div>
+            <div class="rbar"></div><div class="rbar"></div>
+          </div>
+          <div class="rbtns">
+            <button class="rb rb-s" id="rb-s" onclick="recStart()">&#9654; Avvia</button>
+            <button class="rb rb-p" id="rb-p" onclick="recPause()" disabled>&#9646;&#9646;</button>
+            <button class="rb rb-x" id="rb-x" onclick="recStop()" disabled>&#9632; Ferma</button>
+          </div>
+        </div>
+        <div id="p-rec"></div>
+      </div>
     </div>
 
+    <div class="divider"></div>
+
+    <!-- 3. Dati riunione -->
     <div>
-      <label>3 — Dati riunione</label>
+      <div class="sec-lbl">3 — Dati riunione</div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <div><label>Oggetto</label><input type="text" id="m-ogg" value=""></div>
+        <div><label>Oggetto</label><input type="text" id="m-ogg" placeholder="Es: Riunione di coordinamento"></div>
         <div class="g2">
           <div><label>Data inizio</label><input type="date" id="m-di"></div>
           <div><label>Data fine</label><input type="date" id="m-df"></div>
         </div>
-        <div><label>Luogo</label><input type="text" id="m-luo" value=""></div>
-        <div><label>Partecipanti italiani</label><textarea id="m-par" rows="2"></textarea></div>
-        <div><label>Note / evidenziare</label><textarea id="m-note" rows="2" placeholder=""></textarea></div>
+        <div><label>Luogo</label><input type="text" id="m-luo" placeholder="Es: Roma"></div>
+        <div><label>Partecipanti</label><textarea id="m-par" rows="2" placeholder="Es: Col. Rossi, Ten. Bianchi"></textarea></div>
+        <div><label>Compilatore</label><input type="text" id="m-comp" placeholder="Es: Ten. Col. Verdi"></div>
+        <div><label>Visto</label><input type="text" id="m-visto" placeholder="Es: Col. Neri"></div>
+        <div><label>Note / evidenziare</label><textarea id="m-note" rows="2" placeholder="Argomenti da enfatizzare..."></textarea></div>
       </div>
     </div>
 
-    <div style="margin-top:auto">
+    <div style="margin-top:auto;padding-top:12px">
       <button class="btn-gen" id="g-btn" onclick="genera()">⚡ Genera Minuta</button>
       <button class="btn-sec" id="dl-btn" style="display:none" onclick="scarica()">⬇ Scarica .doc</button>
-      <button class="btn-sec" onclick="reset()">↺ Ricomincia</button>
+      <button class="btn-sec" onclick="resetAll()">↺ Ricomincia</button>
     </div>
   </div>
 
@@ -108,7 +170,7 @@ textarea{resize:vertical;min-height:60px}
       </div>
       <div id="status-box" style="display:none"></div>
       <div class="pane on" id="t-out">
-        <div style="color:#aaa;font-size:13px;text-align:center;padding:40px 0">
+        <div style="color:#aaa;font-size:13px;text-align:center;padding:60px 0">
           Carica il briefing e premi Genera Minuta
         </div>
       </div>
@@ -123,36 +185,42 @@ textarea{resize:vertical;min-height:60px}
 const SERVER = 'https://app-riunione.onrender.com';
 let apiKey = '';
 let pdfs = [];
+let audioB64 = null, audioMime = null, audioName = null;
+let recChunks = [], recMR = null, recSec = 0, recTI = null;
+let mode = 'file';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 async function doLogin() {
   const k = document.getElementById('key-input').value.trim();
   if (!k) return;
+  const err = document.getElementById('login-err');
+  err.style.display = 'none';
   try {
     const r = await fetch(SERVER + '/health', { headers: { 'X-API-Key': k } });
     if (r.ok) {
       apiKey = k;
       document.getElementById('login-screen').style.display = 'none';
       document.getElementById('app-screen').style.display = 'grid';
-      const t = new Date().toISOString().split('T')[0];
-      document.getElementById('m-di').value = t;
-      document.getElementById('m-df').value = t;
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('m-di').value = today;
+      document.getElementById('m-df').value = today;
     } else {
-      document.getElementById('login-err').style.display = 'block';
-      document.getElementById('login-err').textContent = 'Chiave non valida.';
+      err.style.display = 'block';
+      err.textContent = 'Chiave non valida.';
     }
   } catch(e) {
-    document.getElementById('login-err').style.display = 'block';
-    document.getElementById('login-err').textContent = 'Server non raggiungibile. Riprova tra poco.';
+    err.style.display = 'block';
+    err.textContent = 'Server non raggiungibile. Riprova tra 30 secondi.';
   }
 }
 
+// PDF multipli
 document.getElementById('i-pdf').addEventListener('change', async function() {
   const files = Array.from(this.files);
   const existing = new Set(pdfs.map(p => p.name));
   for (const f of files) {
-    if (existing.has(f.name)) continue;
+    if (existing.has(f.name)) { log('Già presente: ' + f.name); continue; }
     pdfs.push({ name: f.name, size: f.size, text: null });
     renderPdfs();
     try {
@@ -168,74 +236,128 @@ document.getElementById('i-pdf').addEventListener('change', async function() {
       if (idx >= 0) pdfs[idx].text = text;
       renderPdfs();
       log('✓ ' + f.name + ' — ' + text.split(/\s+/).length.toLocaleString('it-IT') + ' parole');
-    } catch(e) {
-      log('Errore PDF ' + f.name + ': ' + e.message, 'e');
-    }
+    } catch(e) { log('Errore PDF ' + f.name + ': ' + e.message); }
   }
   this.value = '';
 });
 
 function renderPdfs() {
+  const ready = pdfs.filter(p => p.text).length;
   document.getElementById('pdf-list').innerHTML = pdfs.map((p, i) =>
-    `<div class="pill"><span title="${p.name}">${p.name.length > 26 ? p.name.slice(0,23)+'...' : p.name}</span>` +
-    `<span style="opacity:.5;font-size:10px">${p.text ? '✓' : '...'}</span>` +
+    `<div class="pill"><span title="${p.name}">${p.name.length>26?p.name.slice(0,23)+'...':p.name}</span>` +
+    `<span style="opacity:.5;font-size:10px">${p.text?'✓':'...'}</span>` +
     `<span class="pill-rm" onclick="removePdf(${i})">✕</span></div>`
   ).join('');
+  const totalWords = pdfs.reduce((a,p) => a + (p.text ? p.text.split(/\s+/).length : 0), 0);
+  document.getElementById('pdf-words').textContent = ready > 0 ? '~' + totalWords.toLocaleString('it-IT') + ' parole totali' : '';
 }
 
 function removePdf(i) { pdfs.splice(i, 1); renderPdfs(); }
 
-function showTab(id, btn) {
-  document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
+// File audio
+document.getElementById('i-aud').addEventListener('change', async function() {
+  const f = this.files[0]; if (!f) return;
+  try {
+    const ab = await f.arrayBuffer();
+    const by = new Uint8Array(ab); let bin = '';
+    for (let i = 0; i < by.length; i++) bin += String.fromCharCode(by[i]);
+    audioB64 = btoa(bin); audioMime = f.type || 'audio/mpeg'; audioName = f.name;
+    document.getElementById('p-aud').innerHTML = mkPill(f.name, f.size, 'clearAudio()');
+    log('Audio: ' + f.name);
+  } catch(e) { log('Errore audio: ' + e.message); }
+});
+
+function clearAudio() { audioB64=null; audioMime=null; audioName=null; document.getElementById('p-aud').innerHTML=''; document.getElementById('i-aud').value=''; }
+
+// File testo (TXT)
+document.getElementById('i-txt').addEventListener('change', async function() {
+  const f = this.files[0]; if (!f) return;
+  try {
+    const text = await f.text();
+    document.getElementById('m-txt').value = text;
+    setMode('text', document.querySelectorAll('.mt')[1]);
+    document.getElementById('p-txt-file').innerHTML = mkPill(f.name, f.size, 'clearTxtFile()');
+    log('File testo caricato: ' + f.name + ' — ' + text.split(/\s+/).length.toLocaleString('it-IT') + ' parole');
+  } catch(e) { log('Errore file testo: ' + e.message); }
+});
+
+function clearTxtFile() { document.getElementById('p-txt-file').innerHTML=''; document.getElementById('m-txt').value=''; document.getElementById('i-txt').value=''; }
+
+function mkPill(name, size, clearFn) {
+  const n = name.length > 26 ? name.slice(0,23)+'...' : name;
+  const s = (size/1048576).toFixed(1) + 'MB';
+  return `<div class="pill"><span title="${name}">${n}</span><span style="opacity:.5;font-size:10px">${s}</span><span class="pill-rm" onclick="${clearFn}">✕</span></div>`;
+}
+
+// Modalità orale
+function setMode(m, btn) {
+  mode = m;
+  document.querySelectorAll('.mt').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
+  ['file','text','rec'].forEach(k => document.getElementById('md-'+k).style.display = k===m?'block':'none');
 }
 
-function log(msg, type) {
-  const el = document.getElementById('log-out');
-  const tm = new Date().toLocaleTimeString('it-IT');
-  el.textContent += '[' + tm + '] ' + msg + '\n';
-  el.scrollTop = el.scrollHeight;
+// Registrazione
+function recStart() {
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {
+    recChunks = []; recSec = 0;
+    const mime = ['audio/webm;codecs=opus','audio/webm','audio/ogg'].find(t => MediaRecorder.isTypeSupported(t)) || 'audio/webm';
+    recMR = new MediaRecorder(stream, {mimeType:mime});
+    recMR.ondataavailable = e => { if(e.data.size>0) recChunks.push(e.data); };
+    recMR.onstop = async () => {
+      const blob = new Blob(recChunks, {type:mime});
+      const ab = await blob.arrayBuffer(); const by = new Uint8Array(ab); let bin='';
+      for(let i=0;i<by.length;i++) bin+=String.fromCharCode(by[i]);
+      audioB64=btoa(bin); audioMime=mime; audioName='registrazione.webm';
+      document.getElementById('p-rec').innerHTML = mkPill('Registrazione '+fmtT(recSec), blob.size, 'clearRec()');
+      document.getElementById('r-lbl').textContent='Pronta';
+      document.getElementById('r-bars').classList.remove('on');
+    };
+    recMR.start(1000);
+    document.getElementById('r-lbl').textContent='In corso...';
+    document.getElementById('r-bars').classList.add('on');
+    document.getElementById('rb-s').disabled=true;
+    document.getElementById('rb-p').disabled=false;
+    document.getElementById('rb-x').disabled=false;
+    recTI=setInterval(()=>{recSec++;document.getElementById('r-clk').textContent=fmtT(recSec);},1000);
+  }).catch(e=>alert('Microfono non disponibile: '+e.message));
 }
 
-function setStatus(msg, type) {
-  const el = document.getElementById('status-box');
-  el.style.display = 'flex';
-  el.className = 'status ' + (type || 'wait');
-  el.innerHTML = (type === 'wait' ? '<span class="spin"></span>' : '') + msg;
+function recPause() {
+  if(!recMR)return;
+  if(recMR.state==='recording'){recMR.pause();clearInterval(recTI);document.getElementById('r-bars').classList.remove('on');document.getElementById('rb-p').innerHTML='&#9654;';document.getElementById('r-lbl').textContent='In pausa';}
+  else if(recMR.state==='paused'){recMR.resume();document.getElementById('r-bars').classList.add('on');document.getElementById('rb-p').innerHTML='&#9646;&#9646;';document.getElementById('r-lbl').textContent='In corso...';recTI=setInterval(()=>{recSec++;document.getElementById('r-clk').textContent=fmtT(recSec);},1000);}
 }
 
-function fmtD(d) {
-  if (!d) return '';
-  const [y, m, dd] = d.split('-');
-  const mn = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
-  return parseInt(dd) + ' ' + mn[parseInt(m)-1] + ' ' + y;
-}
+function recStop() { clearInterval(recTI); if(recMR){recMR.stop();recMR.stream.getTracks().forEach(t=>t.stop());} document.getElementById('rb-s').disabled=false;document.getElementById('rb-p').disabled=true;document.getElementById('rb-x').disabled=true; }
+function clearRec() { audioB64=null;audioMime=null;audioName=null;document.getElementById('p-rec').innerHTML='';document.getElementById('r-clk').textContent='00:00';document.getElementById('r-lbl').textContent='Pronto';document.getElementById('r-bars').classList.remove('on'); }
 
-function trunc(text, max = 50000) {
-  if (text.length <= max) return text;
-  const k1 = Math.floor(max * .65), k2 = max - k1;
-  return text.slice(0, k1) + '\n\n[...omesso...]\n\n' + text.slice(-k2);
-}
+function fmtT(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function fmtD(d){if(!d)return'';const[y,m,dd]=d.split('-');const mn=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];return parseInt(dd)+' '+mn[parseInt(m)-1]+' '+y;}
+function trunc(t,mx=50000){if(t.length<=mx)return t;const k1=Math.floor(mx*.65),k2=mx-k1;return t.slice(0,k1)+'\n\n[...omesso...]\n\n'+t.slice(-k2);}
+
+function showTab(id,btn){document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));document.getElementById(id).classList.add('on');btn.classList.add('on');}
+function log(msg){const el=document.getElementById('log-out');const tm=new Date().toLocaleTimeString('it-IT');el.textContent+='['+tm+'] '+msg+'\n';el.scrollTop=el.scrollHeight;}
+function setStatus(msg,type){const el=document.getElementById('status-box');el.style.display='flex';el.className='status '+(type||'wait');el.innerHTML=(type==='wait'?'<span class="spin"></span>':'')+' '+msg;}
 
 async function genera() {
   const readyPdfs = pdfs.filter(p => p.text);
   const manTxt = document.getElementById('m-txt').value.trim();
-  if (!readyPdfs.length && !manTxt) {
-    alert('Carica almeno un PDF o incolla degli appunti.');
+  if (!readyPdfs.length && !manTxt && !audioB64) {
+    alert('Carica almeno un PDF, degli appunti, o un file audio.');
     return;
   }
-
   document.getElementById('g-btn').disabled = true;
   document.getElementById('log-out').textContent = '';
   showTab('t-log', document.querySelectorAll('.tab')[1]);
   log('Avvio generazione...');
   setStatus('Preparazione prompt...', 'wait');
 
-  const ogg = document.getElementById('m-ogg').value;
-  const luo = document.getElementById('m-luo').value;
-  const par = document.getElementById('m-par').value;
+  const ogg = document.getElementById('m-ogg').value || '[OGGETTO]';
+  const luo = document.getElementById('m-luo').value || '[LUOGO]';
+  const par = document.getElementById('m-par').value || '[PARTECIPANTI]';
+  const comp = document.getElementById('m-comp').value || '[COMPILATORE]';
+  const visto = document.getElementById('m-visto').value || '[VISTO]';
   const note = document.getElementById('m-note').value;
   const di = document.getElementById('m-di').value;
   const df = document.getElementById('m-df').value;
@@ -244,79 +366,84 @@ async function genera() {
   let contenuto = '';
   if (readyPdfs.length) {
     const perPdf = Math.floor(50000 / readyPdfs.length);
-    contenuto = readyPdfs.map(p => '=== BRIEFING: ' + p.name + ' ===\n' + trunc(p.text, perPdf)).join('\n\n');
+    contenuto += readyPdfs.map(p => '=== BRIEFING: ' + p.name + ' ===\n' + trunc(p.text, perPdf)).join('\n\n');
   }
-  if (manTxt) contenuto += '\n\n=== APPUNTI ===\n' + manTxt;
+  if (manTxt) contenuto += '\n\n=== APPUNTI / TRASCRIZIONE ===\n' + manTxt;
+  if (audioB64) contenuto += '\n\n[File audio allegato: ' + audioName + ' — trascrivi e integra il contenuto nella minuta]';
 
-  const prompt = `Sei CF Paolo LAZZERETTI, compilatore della RMI presso Eglin AFB, programma F-35/JSF.
+  const prompt = `Sei un compilatore ufficiale di verbali e resoconti di riunione in italiano.
 
-Genera un RESOCONTO SOMMARIO DI RIUNIONE ufficiale in italiano.
+Genera un RESOCONTO SOMMARIO DI RIUNIONE ufficiale in italiano formale.
 
-DATI:
+DATI RIUNIONE:
 - Oggetto: ${ogg}
 - Date: ${dateStr}
 - Luogo: ${luo}
-- Partecipanti italiani (SOLO questi): ${par}
-${note ? '- Evidenziare: ' + note : ''}
+- Partecipanti (usa SOLO questi, non aggiungerne altri): ${par}
+${note ? '- Aspetti da evidenziare: ' + note : ''}
 
 STRUTTURA OBBLIGATORIA:
----
-MINISTERO DELLA DIFESA
-DIREZIONE NAZIONALE DEGLI ARMAMENTI
-- II REPARTO – COORDINAMENTO PROGRAMMI DI ARMAMENTO -
-- Direzione di Programma JSF -
 
+---
 RESOCONTO SOMMARIO DI RIUNIONE
 
 Oggetto: ${ogg} – ${dateStr}.
 
 # Scopo, data e luogo
-[4-6 righe: dove, quando, chi partecipa, obiettivo]
+[4-6 righe: dove, quando, chi partecipa in generale, obiettivo e focus della riunione]
 
 # Partecipanti
-Per l'Italia hanno preso parte ${par}.
+${par}.
 
 # Discussione
-Di seguito una sintesi dei contenuti discussi relativamente agli argomenti di maggiore interesse nazionale:
+Di seguito una sintesi dei contenuti discussi:
 
-[Per ogni argomento:
-a. TITOLO IN MAIUSCOLO
-> [paragrafi fluenti, termini inglesi in corsivo (*termine*), dati precisi, impatti Italia]]
+[Per ogni argomento principale:
+a. TITOLO SEZIONE IN MAIUSCOLO
+> [Paragrafi fluenti con dati precisi, versioni, date, decisioni prese. Termini tecnici stranieri in corsivo (*termine*). Rientro > per i paragrafi di ogni sezione.]]
 
 # Conclusioni
-[4-5 righe: importanza, risultati, azioni richieste]
+[4-5 righe: importanza dell'incontro, risultati raggiunti, azioni richieste, prossimi passi]
 
 *Il Compilatore*
-*CF Paolo LAZZERETTI*
+*${comp}*
 *Visto:*
-*Col. Alberto FACCINI*
+*${visto}*
 ---
 
-REGOLE: termini tecnici inglesi in corsivo; registro formale militare italiano; SOLO i partecipanti indicati; "formazione continua" mai "formazione di continuazione"; italiano elegante e corretto.
+REGOLE LINGUISTICHE:
+- Italiano formale e corretto — no calchi dall'inglese
+- "formazione continua" mai "formazione di continuazione"
+- Termini tecnici stranieri in corsivo
+- Usa SOLO i partecipanti indicati, non aggiungerne altri
+- Nessun testo fuori dalla struttura indicata
 
-CONTENUTO:
+CONTENUTO DA ELABORARE:
 ${contenuto}`;
 
-  log('Invio al server (' + contenuto.length.toLocaleString('it-IT') + ' car.)...');
+  log('Invio al server (' + contenuto.length.toLocaleString('it-IT') + ' caratteri)...');
   setStatus('Elaborazione in corso...', 'wait');
 
   try {
+    const messages = [{ role: 'user', content: prompt }];
     const r = await fetch(SERVER + '/api', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-API-Key': apiKey },
-      body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
+      body: JSON.stringify({ messages })
     });
     if (!r.ok) throw new Error('Errore server: ' + r.status);
     const data = await r.json();
     const testo = data.content;
-    log('Minuta ricevuta — ' + testo.length.toLocaleString('it-IT') + ' caratteri.');
+    log('✓ Minuta ricevuta — ' + testo.length.toLocaleString('it-IT') + ' caratteri.');
     setStatus('Minuta generata con successo.', 'ok');
     document.getElementById('t-out').innerHTML = '<div class="minuta">' + testo.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>';
     document.getElementById('dl-btn').style.display = 'block';
     document.getElementById('dl-btn').setAttribute('data-testo', testo);
+    document.getElementById('dl-btn').setAttribute('data-ogg', ogg);
+    document.getElementById('dl-btn').setAttribute('data-di', di);
     showTab('t-out', document.querySelectorAll('.tab')[0]);
   } catch(e) {
-    log('ERRORE: ' + e.message, 'e');
+    log('ERRORE: ' + e.message);
     setStatus('Errore: ' + e.message, 'err');
   } finally {
     document.getElementById('g-btn').disabled = false;
@@ -325,25 +452,40 @@ ${contenuto}`;
 
 function scarica() {
   const testo = document.getElementById('dl-btn').getAttribute('data-testo');
-  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:"Times New Roman",serif;font-size:11pt;margin:2cm;line-height:1.6}h1,h2{font-size:11pt;font-weight:bold}p{text-align:justify;margin-bottom:6px}blockquote{margin-left:1.2cm}</style></head><body>' + testo.replace(/\n/g,'<br>') + '</body></html>';
+  const ogg = document.getElementById('dl-btn').getAttribute('data-ogg').replace(/\s+/g,'_').slice(0,20);
+  const di = document.getElementById('dl-btn').getAttribute('data-di').replace(/-/g,'') || 'DATA';
+  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:"Times New Roman",serif;font-size:11pt;margin:2cm;line-height:1.6;text-align:justify}h1,h2{font-size:11pt;font-weight:bold;text-align:left}p{margin-bottom:6px}blockquote{margin-left:1.2cm}</style></head><body>' + testo.replace(/\n/g,'<br>') + '</body></html>';
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([html], { type: 'application/msword' }));
-  const ogg = document.getElementById('m-ogg').value.replace(/\s+/g,'_').slice(0,20);
-  const data = document.getElementById('m-di').value.replace(/-/g,'') || 'DATA';
-  a.download = 'Minuta_' + ogg + '_' + data + '.doc';
+  a.download = 'Minuta_' + ogg + '_' + di + '.doc';
   a.click();
   URL.revokeObjectURL(a.href);
 }
 
-function reset() {
-  pdfs = [];
-  renderPdfs();
-  document.getElementById('m-txt').value = '';
-  document.getElementById('log-out').textContent = 'Nessun processo avviato.';
-  document.getElementById('t-out').innerHTML = '<div style="color:#aaa;font-size:13px;text-align:center;padding:40px 0">Carica il briefing e premi Genera Minuta</div>';
-  document.getElementById('status-box').style.display = 'none';
-  document.getElementById('dl-btn').style.display = 'none';
-  document.getElementById('g-btn').disabled = false;
+function resetAll() {
+  pdfs = []; renderPdfs();
+  audioB64=null;audioMime=null;audioName=null;
+  document.getElementById('p-aud').innerHTML='';
+  document.getElementById('p-rec').innerHTML='';
+  document.getElementById('p-txt-file').innerHTML='';
+  document.getElementById('m-txt').value='';
+  document.getElementById('m-ogg').value='';
+  document.getElementById('m-luo').value='';
+  document.getElementById('m-par').value='';
+  document.getElementById('m-comp').value='';
+  document.getElementById('m-visto').value='';
+  document.getElementById('m-note').value='';
+  document.getElementById('log-out').textContent='Nessun processo avviato.';
+  document.getElementById('t-out').innerHTML='<div style="color:#aaa;font-size:13px;text-align:center;padding:60px 0">Carica il briefing e premi Genera Minuta</div>';
+  document.getElementById('status-box').style.display='none';
+  document.getElementById('dl-btn').style.display='none';
+  document.getElementById('g-btn').disabled=false;
+  document.getElementById('r-clk').textContent='00:00';
+  document.getElementById('r-lbl').textContent='Pronto';
+  document.getElementById('r-bars').classList.remove('on');
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('m-di').value=today;
+  document.getElementById('m-df').value=today;
 }
 </script>
 </body>
