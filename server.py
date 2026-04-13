@@ -15,7 +15,8 @@ VALID_KEYS = {
 }
 
 def check_key(req):
-    key = req.headers.get("X-API-Key", "")
+    # Accetta chiave sia nell'header che nel form data
+    key = req.headers.get("X-API-Key", "") or req.form.get("api_key", "") or req.args.get("api_key", "")
     return key in VALID_KEYS
 
 @app.route("/health", methods=["GET"])
