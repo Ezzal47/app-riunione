@@ -3,3 +3,4 @@ flask-cors
 anthropic
 python-docx
 gunicorn
+openai
